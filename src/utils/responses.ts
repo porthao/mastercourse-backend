@@ -30,7 +30,7 @@ interface paginationMeta {
   total: number;
   page: number;
   limit: number;
-  totalPages: number;
+  totalPages?: number;
 }
 
 interface successManyPaload<T> {

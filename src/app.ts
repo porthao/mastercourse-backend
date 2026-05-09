@@ -5,6 +5,9 @@ import helmet from "helmet";
 // import { userRouter } from "./routes/user.routes";
 import { AppDataSource } from "./db/data-source";
 import { userRouter } from "./modules/user/routers/user.routes";
+import { authRouters } from "./modules/auth/routes/auth.routes";
+import { JwtPayloadDto } from "./modules/auth/types/auth.types";
+import { postRouters } from "./modules/post/routes/post.routes";
 require("dotenv").config();
 
 export const app = express();
@@ -28,6 +31,8 @@ const startServer = async () => {
 
   // ── Routes ─────────────────────────────────────────
   app.use("/api/users", userRouter);
+  app.use("/api/auth", authRouters);
+  app.use("/api/posts", postRouters);
 
   // ── Global Error Handler ────────────────────────────
   app.use(

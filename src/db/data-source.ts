@@ -1,7 +1,8 @@
 import "reflect-metadata";
 import { DataSource } from "typeorm";
 import { User } from "../modules/user/entities/user.entity";
-require('dotenv').config()
+import { Post } from "../modules/post/entities/post.entity";
+require("dotenv").config();
 
 export const AppDataSource = new DataSource({
   type: "mysql",
@@ -10,7 +11,7 @@ export const AppDataSource = new DataSource({
   username: process.env.DB_USER || "root",
   password: process.env.DB_PASS || "password",
   database: process.env.DB_NAME || "masterbackend_db",
-  entities:    [User],
+  entities: [User, Post],
   synchronize: true, // ⚠ dev only — ໃຊ້ migrations ໃນ production
   logging: true,
 });
