@@ -47,8 +47,8 @@ const startServer = async () => {
     },
   );
 
-  app.listen(3001, () => {
-    console.log("Server is running http://localhost:3001");
+  app.listen(3002, () => {
+    console.log("Server is running http://localhost:3002");
   });
 };
 
