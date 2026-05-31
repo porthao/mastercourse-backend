@@ -65,9 +65,9 @@ const startServer = async () => {
     },
   );
 
-  app.listen(3002, () => {
-    console.log("Server is running http://localhost:3002");
-    console.log("Apollo Server is running http://localhost:3002/graphql");
+  app.listen(3003, () => {
+    console.log("Server is running http://localhost:3003");
+    console.log("Apollo Server is running http://localhost:3003/graphql");
   });
 };
 

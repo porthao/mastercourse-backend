@@ -52,5 +52,6 @@ input UpdatePostInput {
 type Mutation {
 createPost(data: CreatePostInput!): PostOneResponse
 updatePost(id: Int, data: UpdatePostInput): PostOneResponse
+deletePost(id: Int): PostOneResponse
 }
 `;

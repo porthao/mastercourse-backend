@@ -39,3 +39,4 @@ export class Post {
 
 
 // Select * from comment left join user on user.id = comment.authore_id left join post on post.id = comment.post_id
+// Select * from post left join user on user.id = post.author_id

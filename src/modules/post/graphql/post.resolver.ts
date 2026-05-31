@@ -2,6 +2,7 @@ import { GraphqlContext } from "../../../graphql/context";
 import { responseError } from "../../../utils/responses";
 import {
   createPostService,
+  deletePostService,
   getAllPostsService,
   getPostByIdService,
   updatePostService,
@@ -36,7 +37,7 @@ export const postResolver = {
       const _res = await createPostService(data);
       return _res;
     },
-    
+
     updatePost: async (
       _: any,
       { id, data }: { id: number; data: CreatePostDto },
@@ -45,6 +46,16 @@ export const postResolver = {
       if (!context.user?.id) return responseError("Unauthorized");
       data.author_id = Number(context.user.id);
       const _res = await updatePostService(id, data);
+      return _res;
+    },
+
+    deletePost: async (
+      _: any,
+      { id }: { id: number },
+      context: GraphqlContext,
+    ) => {
+      if (!context.user?.id) return responseError("Unauthorized");
+      const _res = await deletePostService(id, Number(context.user?.id));
       return _res;
     },
   },
